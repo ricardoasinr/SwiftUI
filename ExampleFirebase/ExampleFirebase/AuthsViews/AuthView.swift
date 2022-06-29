@@ -36,6 +36,15 @@ struct AuthView: View {
                 } label: {
                     Label("Ingresar con Email", systemImage: "envelope.fill")
                 }
+            }.padding(20)
+            HStack{
+                Image("FacebookLogo").resizable().frame(width: 40, height: 40).padding(-10)
+                Button {
+                    //authSheetView = .login
+                    print("Facebook")
+                } label: {
+                    Label("Ingresar con Facebook", systemImage: "")
+                }
             }
            
             Spacer()
