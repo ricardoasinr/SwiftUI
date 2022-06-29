@@ -26,6 +26,11 @@ final class AuthRepository{
         authFirebaseDatasource.LoginUser(email: email, password: password, completionBlock: completionBlock)
     }
     
+    func loginWithFacebook (completionBlock: @escaping(Result<User, Error>)->Void ){
+        authFirebaseDatasource.loginWithFacebook(completionBlock: completionBlock)
+    }
+    
+    
     func logout() throws{
         try authFirebaseDatasource.logout()
     }

@@ -13,11 +13,21 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView{
-            VStack(alignment: .center){
-                Text("Bienvenido \(authViewModel.user?.email ?? "NO USER")").padding(.top, 35)
-                Spacer()
+            TabView{
+                VStack(alignment: .center){
+                    Text("Bienvenido \(authViewModel.user?.email ?? "NO USER")").padding(.top, 35)
+                    Spacer()
+                    
+                }
+                .tabItem{
+                    Label("Home", systemImage: "house.fill")
+                }
                 
-            }.navigationBarTitleDisplayMode(.inline)
+                Profile(authViewModel: authViewModel).tabItem{
+                    Label("Perfil", systemImage: "person.fill")
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("NOTAS").toolbar{
                     Button("Salir"){
                         authViewModel.logout()
