@@ -21,7 +21,7 @@ struct RegisterEmailView: View {
             Spacer()
             Group{
                 TextField("Ingresa tu correo electronico", text: $TextFieldEmail).keyboardType(.emailAddress).autocapitalization(.none)
-                TextField("Contraseña", text: $TextFieldPassword).autocapitalization(.none)
+                SecureField("Contraseña", text: $TextFieldPassword).autocapitalization(.none)
                 Button("Registrar"){
                     authViewModel.createNewUser(email: TextFieldEmail, password: TextFieldPassword)
                 }.padding(.top,20).buttonStyle(.bordered)

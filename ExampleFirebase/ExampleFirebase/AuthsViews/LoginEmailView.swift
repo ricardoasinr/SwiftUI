@@ -25,7 +25,7 @@ struct LoginEmailView: View {
             Group{
                 
                 TextField("Ingresa tu correo electronico", text: $TextFieldEmail).keyboardType(.emailAddress).autocapitalization(.none)
-                TextField("Contraseña", text: $TextFieldPassword).autocapitalization(.none)
+                SecureField("Contraseña", text: $TextFieldPassword).autocapitalization(.none)
                 Button("Ingresar"){
                     authViewModel.loginUser(email: TextFieldEmail,
                                             password: TextFieldPassword)
