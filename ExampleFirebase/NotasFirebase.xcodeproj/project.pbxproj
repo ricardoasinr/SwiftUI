@@ -27,10 +27,12 @@
 		AB9A7EB2286CB57C00AA5288 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7EB1286CB57C00AA5288 /* ProfileView.swift */; };
 		AB9A7EB5286CC87900AA5288 /* LinkAccounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7EB4286CC87900AA5288 /* LinkAccounts.swift */; };
 		AB9A7EB7286CC93100AA5288 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7EB6286CC93100AA5288 /* User.swift */; };
+		AB9A7EB9286CFFB600AA5288 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AB9A7EB8286CFFB600AA5288 /* FirebaseFirestore */; };
+		AB9A7EBB286CFFB600AA5288 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AB9A7EBA286CFFB600AA5288 /* FirebaseFirestoreSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AB9A7E75286B81BE00AA5288 /* ExampleFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB9A7E75286B81BE00AA5288 /* NotasFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotasFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9A7E78286B81BE00AA5288 /* ExampleFirebaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleFirebaseApp.swift; sourceTree = "<group>"; };
 		AB9A7E7A286B81BE00AA5288 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		AB9A7E7C286B81C000AA5288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,7 +61,9 @@
 				AB9A7EAA286C9E1400AA5288 /* FacebookLogin in Frameworks */,
 				AB9A7E8C286B8A0200AA5288 /* FirebaseAnalyticsSwift in Frameworks */,
 				AB9A7E99286BA83200AA5288 /* FirebaseAuth in Frameworks */,
+				AB9A7EB9286CFFB600AA5288 /* FirebaseFirestore in Frameworks */,
 				AB9A7E8A286B8A0200AA5288 /* FirebaseAnalytics in Frameworks */,
+				AB9A7EBB286CFFB600AA5288 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +82,7 @@
 		AB9A7E76286B81BE00AA5288 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AB9A7E75286B81BE00AA5288 /* ExampleFirebase.app */,
+				AB9A7E75286B81BE00AA5288 /* NotasFirebase.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,9 +170,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AB9A7E74286B81BE00AA5288 /* ExampleFirebase */ = {
+		AB9A7E74286B81BE00AA5288 /* NotasFirebase */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB9A7E83286B81C000AA5288 /* Build configuration list for PBXNativeTarget "ExampleFirebase" */;
+			buildConfigurationList = AB9A7E83286B81C000AA5288 /* Build configuration list for PBXNativeTarget "NotasFirebase" */;
 			buildPhases = (
 				AB9A7E71286B81BE00AA5288 /* Sources */,
 				AB9A7E72286B81BE00AA5288 /* Frameworks */,
@@ -178,15 +182,17 @@
 			);
 			dependencies = (
 			);
-			name = ExampleFirebase;
+			name = NotasFirebase;
 			packageProductDependencies = (
 				AB9A7E89286B8A0200AA5288 /* FirebaseAnalytics */,
 				AB9A7E8B286B8A0200AA5288 /* FirebaseAnalyticsSwift */,
 				AB9A7E98286BA83200AA5288 /* FirebaseAuth */,
 				AB9A7EA9286C9E1400AA5288 /* FacebookLogin */,
+				AB9A7EB8286CFFB600AA5288 /* FirebaseFirestore */,
+				AB9A7EBA286CFFB600AA5288 /* FirebaseFirestoreSwift */,
 			);
 			productName = ExampleFirebase;
-			productReference = AB9A7E75286B81BE00AA5288 /* ExampleFirebase.app */;
+			productReference = AB9A7E75286B81BE00AA5288 /* NotasFirebase.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -204,7 +210,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AB9A7E70286B81BE00AA5288 /* Build configuration list for PBXProject "ExampleFirebase" */;
+			buildConfigurationList = AB9A7E70286B81BE00AA5288 /* Build configuration list for PBXProject "NotasFirebase" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -221,7 +227,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AB9A7E74286B81BE00AA5288 /* ExampleFirebase */,
+				AB9A7E74286B81BE00AA5288 /* NotasFirebase */,
 			);
 		};
 /* End PBXProject section */
@@ -444,7 +450,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AB9A7E70286B81BE00AA5288 /* Build configuration list for PBXProject "ExampleFirebase" */ = {
+		AB9A7E70286B81BE00AA5288 /* Build configuration list for PBXProject "NotasFirebase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB9A7E81286B81C000AA5288 /* Debug */,
@@ -453,7 +459,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB9A7E83286B81C000AA5288 /* Build configuration list for PBXNativeTarget "ExampleFirebase" */ = {
+		AB9A7E83286B81C000AA5288 /* Build configuration list for PBXNativeTarget "NotasFirebase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB9A7E84286B81C000AA5288 /* Debug */,
@@ -503,6 +509,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AB9A7EA8286C9E1400AA5288 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookLogin;
+		};
+		AB9A7EB8286CFFB600AA5288 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB9A7E88286B8A0200AA5288 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		AB9A7EBA286CFFB600AA5288 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB9A7E88286B8A0200AA5288 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
