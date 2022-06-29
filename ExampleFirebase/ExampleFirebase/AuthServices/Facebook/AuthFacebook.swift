@@ -8,9 +8,11 @@
 import Foundation
 
 import FacebookLogin
+import FBSDKLoginKit
 
 final class AuthFacebook {
     let loginManager = LoginManager()
+    
     
     func loginFacebook (completionBlock: @escaping(Result<String, Error>)->Void){
         loginManager.logIn(permissions: ["email"], from: nil){

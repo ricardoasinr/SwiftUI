@@ -24,7 +24,9 @@
 		AB9A7EA5286BE79700AA5288 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7EA4286BE79700AA5288 /* HomeView.swift */; };
 		AB9A7EAA286C9E1400AA5288 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = AB9A7EA9286C9E1400AA5288 /* FacebookLogin */; };
 		AB9A7EB0286CA23A00AA5288 /* AuthFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7EAF286CA23A00AA5288 /* AuthFacebook.swift */; };
-		AB9A7EB2286CB57C00AA5288 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7EB1286CB57C00AA5288 /* Profile.swift */; };
+		AB9A7EB2286CB57C00AA5288 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7EB1286CB57C00AA5288 /* ProfileView.swift */; };
+		AB9A7EB5286CC87900AA5288 /* LinkAccounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7EB4286CC87900AA5288 /* LinkAccounts.swift */; };
+		AB9A7EB7286CC93100AA5288 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7EB6286CC93100AA5288 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +46,9 @@
 		AB9A7EAB286C9E8A00AA5288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB9A7EAC286CA02B00AA5288 /* ExampleFirebase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExampleFirebase.entitlements; sourceTree = "<group>"; };
 		AB9A7EAF286CA23A00AA5288 /* AuthFacebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFacebook.swift; sourceTree = "<group>"; };
-		AB9A7EB1286CB57C00AA5288 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		AB9A7EB1286CB57C00AA5288 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		AB9A7EB4286CC87900AA5288 /* LinkAccounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkAccounts.swift; sourceTree = "<group>"; };
+		AB9A7EB6286CC93100AA5288 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +86,14 @@
 		AB9A7E77286B81BE00AA5288 /* ExampleFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				AB9A7EB3286CC85600AA5288 /* Models */,
 				AB9A7EAC286CA02B00AA5288 /* ExampleFirebase.entitlements */,
 				AB9A7EAB286C9E8A00AA5288 /* Info.plist */,
 				AB9A7E78286B81BE00AA5288 /* ExampleFirebaseApp.swift */,
 				AB9A7E9B286BA8F500AA5288 /* AuthServices */,
 				AB9A7E9A286BA85800AA5288 /* AuthsViews */,
 				AB9A7E95286BA56300AA5288 /* DismissView.swift */,
-				AB9A7EB1286CB57C00AA5288 /* Profile.swift */,
+				AB9A7EB1286CB57C00AA5288 /* ProfileView.swift */,
 				AB9A7E8D286B8C8F00AA5288 /* GoogleService-Info.plist */,
 				AB9A7E7C286B81C000AA5288 /* Assets.xcassets */,
 				AB9A7E7E286B81C000AA5288 /* Preview Content */,
@@ -147,6 +152,15 @@
 				AB9A7EAF286CA23A00AA5288 /* AuthFacebook.swift */,
 			);
 			path = Facebook;
+			sourceTree = "<group>";
+		};
+		AB9A7EB3286CC85600AA5288 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AB9A7EB4286CC87900AA5288 /* LinkAccounts.swift */,
+				AB9A7EB6286CC93100AA5288 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,15 +244,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB9A7EB7286CC93100AA5288 /* User.swift in Sources */,
 				AB9A7EA5286BE79700AA5288 /* HomeView.swift in Sources */,
 				AB9A7E9F286BA96100AA5288 /* AuthFirebaseDataSource.swift in Sources */,
 				AB9A7E7B286B81BE00AA5288 /* AuthView.swift in Sources */,
+				AB9A7EB5286CC87900AA5288 /* LinkAccounts.swift in Sources */,
 				AB9A7E96286BA56300AA5288 /* DismissView.swift in Sources */,
 				AB9A7E92286B9F5600AA5288 /* LoginEmailView.swift in Sources */,
 				AB9A7EA3286BAF5500AA5288 /* AuthViewModel.swift in Sources */,
 				AB9A7EA1286BAD9F00AA5288 /* AuthRepository.swift in Sources */,
 				AB9A7EB0286CA23A00AA5288 /* AuthFacebook.swift in Sources */,
-				AB9A7EB2286CB57C00AA5288 /* Profile.swift in Sources */,
+				AB9A7EB2286CB57C00AA5288 /* ProfileView.swift in Sources */,
 				AB9A7E94286BA4C200AA5288 /* RegisterEmailView.swift in Sources */,
 				AB9A7E79286B81BE00AA5288 /* ExampleFirebaseApp.swift in Sources */,
 			);

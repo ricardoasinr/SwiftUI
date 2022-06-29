@@ -11,6 +11,9 @@ final class AuthViewModel: ObservableObject{
     
     @Published var user: User?
     @Published var messageError: String?
+    @Published var linkedAccounts: [LinkedAccounts] = []
+    @Published var showAlert: Bool = false
+    @Published var isAccountLinked: Bool = false
     
     private let authRepository: AuthRepository
     
@@ -87,4 +90,31 @@ final class AuthViewModel: ObservableObject{
             
         }
     }
+    
+    func getCurrentProvider (){
+        linkedAccounts = authRepository.getCurrentProvider()
+        print("User provider: \(linkedAccounts)")
+    }
+    
+    func isEmailAndPasswordLinked() -> Bool{
+        linkedAccounts.contains(where: {$0.rawValue == "password"})
+    }
+    
+    func isFacebookLinked() -> Bool{
+        linkedAccounts.contains(where: {$0.rawValue == "facebook.com"})
+    }
+    
+    func linkFacebook(){
+        
+        authRepository.linkFacebook{
+            [weak self]
+            isSuccess in print("Linked facebook \(isSuccess.description)")
+            self?.isAccountLinked = isSuccess
+            self?.showAlert.toggle()
+            self?.getCurrentProvider()
+            
+        }
+      
+    }
+    
 }

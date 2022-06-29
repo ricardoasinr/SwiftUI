@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Profile: View {
+struct ProfileView: View {
     @ObservedObject var authViewModel: AuthViewModel
   
     var body: some View {
@@ -18,10 +18,10 @@ struct Profile: View {
                         print("Hola")
                     },label:{
                         Label("Vincula tu email", systemImage: "envelope.fill")
-                    })
+                    }).disabled(authViewModel.isEmailAndPasswordLinked())
                     
                     Button(action: {
-                        print("Hola")
+                        authViewModel.linkFacebook()
                     },label:{
                         HStack{
                             Image("FacebookLogo").resizable().frame(width: 33, height: 33)
@@ -30,19 +30,33 @@ struct Profile: View {
                         }
                         
                         
-                    })
+                    }).disabled(authViewModel.isFacebookLinked())
                 }header: {
                     Text("Vincula tus cuentas")
                         .font(.subheadline)
                        
                 }
+                
             }
+            .task {
+                authViewModel.getCurrentProvider()
+            }
+            .alert(authViewModel.isAccountLinked ? "Cuenta vinculada" : "Error", isPresented: $authViewModel.showAlert) {
+                Button("Aceptar"){
+                    print("Dissmiss alert")
+                }
+            } message: {
+                Text(authViewModel.isAccountLinked ? "✅Vinculación correcta" : "Error al vincular la cuenta")
+                
+            }
+
+            
         }
     }
 }
 
-struct Profile_Previews: PreviewProvider {
+struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        Profile(authViewModel: AuthViewModel())
+        ProfileView(authViewModel: AuthViewModel())
     }
 }

@@ -23,7 +23,7 @@ struct HomeView: View {
                     Label("Home", systemImage: "house.fill")
                 }
                 
-                Profile(authViewModel: authViewModel).tabItem{
+                ProfileView(authViewModel: authViewModel).tabItem{
                     Label("Perfil", systemImage: "person.fill")
                 }
             }

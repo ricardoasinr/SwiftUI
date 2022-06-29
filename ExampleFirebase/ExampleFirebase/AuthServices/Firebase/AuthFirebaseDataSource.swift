@@ -8,9 +8,7 @@
 import Foundation
 import FirebaseAuth
 
-struct User {
-    let email: String
-}
+
 
 private let authFacebook = AuthFacebook()
 
@@ -87,4 +85,44 @@ final class AuthFirebaseDataSource{
     func logout() throws{
         try Auth.auth().signOut()
     }
+    
+    func currentProvider() -> [LinkedAccounts]{
+        guard let currentUser = Auth.auth().currentUser else{
+            return []
+        }
+        
+        let linkedAccounts = currentUser.providerData.map{UserInfo in
+            LinkedAccounts(rawValue: UserInfo.providerID)
+            
+        }.compactMap{$0}
+        return linkedAccounts
+        
+        
+    }
+    func linkFacebook(completionBlock: @escaping(Bool)-> Void){
+        authFacebook.loginFacebook { result in
+            switch result{
+                
+            case .success(let accessToken):
+                let credential = FacebookAuthProvider.credential(withAccessToken: accessToken)
+                Auth.auth().currentUser?.link(with: credential, completion: {authDataResult, error in
+                    if let error = error {
+                        print("Error al linkear el usuario \(error.localizedDescription)")
+                        completionBlock(false)
+                        return
+                    }
+                    let email = authDataResult?.user.email ?? "No email"
+                    print("Se inició sesión con \(email)")
+                    completionBlock(true)
+                })
+            case .failure(let error ):
+                    print("Error al linkear el usuario \(error.localizedDescription)")
+                    completionBlock(false)
+             
+            }
+        }
+    }
+    
+    
+    
 }
