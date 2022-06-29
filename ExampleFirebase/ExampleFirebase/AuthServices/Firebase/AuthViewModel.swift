@@ -117,4 +117,16 @@ final class AuthViewModel: ObservableObject{
       
     }
     
+    func linkEmail(email: String, password: String){
+        authRepository.linkEmail(email: email, password: password) {
+            [weak self]
+            isSuccess in
+            print("Linkeado el email y password \(isSuccess.description)")
+            self?.isAccountLinked = isSuccess
+            self?.showAlert.toggle()
+            self?.getCurrentProvider()
+        }
+        
+    }
+    
 }

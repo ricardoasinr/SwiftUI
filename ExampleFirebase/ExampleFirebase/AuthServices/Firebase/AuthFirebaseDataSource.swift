@@ -112,7 +112,7 @@ final class AuthFirebaseDataSource{
                         return
                     }
                     let email = authDataResult?.user.email ?? "No email"
-                    print("Se inició sesión con \(email)")
+                    print("Se linkeo con \(email)")
                     completionBlock(true)
                 })
             case .failure(let error ):
@@ -121,6 +121,54 @@ final class AuthFirebaseDataSource{
              
             }
         }
+    }
+    
+    func getCurrentCredential() -> AuthCredential?{
+        guard let providerID = currentProvider().last else
+        {
+            return nil
+        }
+        switch providerID{
+        case .facebook:
+            guard let accessToken = authFacebook.getAccesToken() else {
+                return nil
+            }
+            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken)
+            return credential
+            
+        case .emailAndPassword, .unknown:
+            return nil
+        }
+    }
+    
+    func LinkemailAndPassword(email: String, password: String, completionBlock: @escaping(Bool)->Void ){
+        guard let credential = getCurrentCredential() else{
+            print("No hay credencial")
+            completionBlock(false)
+            return
+            
+            
+        }
+        Auth.auth().currentUser?.reauthenticate(with: credential, completion: { authDataResult, error in
+            if let error = error{
+                print("Error al reautenticar el usuario \(error.localizedDescription)")
+                completionBlock(false)
+                return
+                
+            }
+            let emailAndPasswordCredential = EmailAuthProvider.credential(withEmail: email, password: password)
+            Auth.auth().currentUser?.link(with: emailAndPasswordCredential, completion: { authDataResult, error in
+                if let error = error {
+                    print("Error al linkear el usuario \(error.localizedDescription)")
+                    completionBlock(false)
+                    return
+                }
+                let email = authDataResult?.user.email ?? "No email"
+                print("Se linkeo con \(email)")
+                completionBlock(true)
+            })
+            
+        })
     }
     
     

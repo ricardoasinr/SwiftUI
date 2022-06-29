@@ -28,7 +28,9 @@ final class AuthFacebook {
         }
     }
     
-    //func getAccesToken
+    func getAccesToken() -> String? {
+        AccessToken.current?.tokenString
+    }
 }
 
 

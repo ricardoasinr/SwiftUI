@@ -42,4 +42,8 @@ final class AuthRepository{
     func linkFacebook(completionBlock: @escaping (Bool) -> Void){
         authFirebaseDatasource.linkFacebook(completionBlock: completionBlock)
     }
+    
+    func linkEmail(email: String, password: String, completionBlock: @escaping (Bool) -> Void){
+        authFirebaseDatasource.LinkemailAndPassword(email: email, password: password, completionBlock: completionBlock)
+    }
 }
