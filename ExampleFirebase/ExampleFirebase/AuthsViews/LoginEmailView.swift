@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoginEmailView: View {
     
+    @ObservedObject var authViewModel: AuthViewModel
+    
     @State var TextFieldEmail: String = ""
     @State var TextFieldPassword: String = ""
     
@@ -21,11 +23,18 @@ struct LoginEmailView: View {
                 .multilineTextAlignment(.center).padding(.top, 30)
             Spacer()
             Group{
-                TextField("Ingresa tu correo electronico", text: $TextFieldEmail)
-                TextField("Contraseña", text: $TextFieldPassword)
+                
+                TextField("Ingresa tu correo electronico", text: $TextFieldEmail).keyboardType(.emailAddress).autocapitalization(.none)
+                TextField("Contraseña", text: $TextFieldPassword).autocapitalization(.none)
                 Button("Ingresar"){
-                    print("Login")
+                    authViewModel.loginUser(email: TextFieldEmail,
+                                            password: TextFieldPassword)
+                       
                 }.padding(.top,20).buttonStyle(.bordered)
+                    .tint(.blue)
+                if let messageError = authViewModel.messageError{
+                    Text(messageError).foregroundColor(.red).bold().font(.body).padding(.top, 20)
+                }
             }.textFieldStyle(.roundedBorder).padding(.horizontal, 30)
             Spacer()
             DismissView()
@@ -40,6 +49,6 @@ struct LoginEmailView: View {
 
 struct LoginEmailView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginEmailView()
+        LoginEmailView(authViewModel: AuthViewModel())
     }
 }

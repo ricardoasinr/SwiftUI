@@ -18,6 +18,7 @@ enum AuthSheetView: String, Identifiable{
 
 
 struct AuthView: View {
+    @ObservedObject var authViewModel: AuthViewModel
     
     @State private var authSheetView: AuthSheetView?
     
@@ -55,9 +56,9 @@ struct AuthView: View {
             sheet in
             switch sheet {
             case .register:
-                RegisterEmailView()
+                RegisterEmailView(authViewModel: authViewModel)
             case .login:
-                LoginEmailView()
+                LoginEmailView(authViewModel: authViewModel)
             }
         }
        
@@ -66,6 +67,6 @@ struct AuthView: View {
 
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView()
+        AuthView(authViewModel: AuthViewModel())
     }
 }

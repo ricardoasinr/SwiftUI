@@ -18,6 +18,10 @@
 		AB9A7E94286BA4C200AA5288 /* RegisterEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7E93286BA4C200AA5288 /* RegisterEmailView.swift */; };
 		AB9A7E96286BA56300AA5288 /* DismissView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7E95286BA56300AA5288 /* DismissView.swift */; };
 		AB9A7E99286BA83200AA5288 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AB9A7E98286BA83200AA5288 /* FirebaseAuth */; };
+		AB9A7E9F286BA96100AA5288 /* AuthFirebaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7E9E286BA96100AA5288 /* AuthFirebaseDataSource.swift */; };
+		AB9A7EA1286BAD9F00AA5288 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7EA0286BAD9F00AA5288 /* AuthRepository.swift */; };
+		AB9A7EA3286BAF5500AA5288 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7EA2286BAF5500AA5288 /* AuthViewModel.swift */; };
+		AB9A7EA5286BE79700AA5288 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7EA4286BE79700AA5288 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		AB9A7E91286B9F5600AA5288 /* LoginEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailView.swift; sourceTree = "<group>"; };
 		AB9A7E93286BA4C200AA5288 /* RegisterEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmailView.swift; sourceTree = "<group>"; };
 		AB9A7E95286BA56300AA5288 /* DismissView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissView.swift; sourceTree = "<group>"; };
+		AB9A7E9E286BA96100AA5288 /* AuthFirebaseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFirebaseDataSource.swift; sourceTree = "<group>"; };
+		AB9A7EA0286BAD9F00AA5288 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		AB9A7EA2286BAF5500AA5288 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		AB9A7EA4286BE79700AA5288 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +75,13 @@
 			isa = PBXGroup;
 			children = (
 				AB9A7E78286B81BE00AA5288 /* ExampleFirebaseApp.swift */,
+				AB9A7E9B286BA8F500AA5288 /* AuthServices */,
 				AB9A7E9A286BA85800AA5288 /* AuthsViews */,
 				AB9A7E95286BA56300AA5288 /* DismissView.swift */,
 				AB9A7E8D286B8C8F00AA5288 /* GoogleService-Info.plist */,
 				AB9A7E7C286B81C000AA5288 /* Assets.xcassets */,
 				AB9A7E7E286B81C000AA5288 /* Preview Content */,
+				AB9A7EA4286BE79700AA5288 /* HomeView.swift */,
 			);
 			path = ExampleFirebase;
 			sourceTree = "<group>";
@@ -99,6 +109,16 @@
 				AB9A7E93286BA4C200AA5288 /* RegisterEmailView.swift */,
 			);
 			path = AuthsViews;
+			sourceTree = "<group>";
+		};
+		AB9A7E9B286BA8F500AA5288 /* AuthServices */ = {
+			isa = PBXGroup;
+			children = (
+				AB9A7E9E286BA96100AA5288 /* AuthFirebaseDataSource.swift */,
+				AB9A7EA0286BAD9F00AA5288 /* AuthRepository.swift */,
+				AB9A7EA2286BAF5500AA5288 /* AuthViewModel.swift */,
+			);
+			path = AuthServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,9 +200,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB9A7EA5286BE79700AA5288 /* HomeView.swift in Sources */,
+				AB9A7E9F286BA96100AA5288 /* AuthFirebaseDataSource.swift in Sources */,
 				AB9A7E7B286B81BE00AA5288 /* AuthView.swift in Sources */,
 				AB9A7E96286BA56300AA5288 /* DismissView.swift in Sources */,
 				AB9A7E92286B9F5600AA5288 /* LoginEmailView.swift in Sources */,
+				AB9A7EA3286BAF5500AA5288 /* AuthViewModel.swift in Sources */,
+				AB9A7EA1286BAD9F00AA5288 /* AuthRepository.swift in Sources */,
 				AB9A7E94286BA4C200AA5288 /* RegisterEmailView.swift in Sources */,
 				AB9A7E79286B81BE00AA5288 /* ExampleFirebaseApp.swift in Sources */,
 			);
@@ -315,6 +339,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ExampleFirebase/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -343,6 +368,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ExampleFirebase/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

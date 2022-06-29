@@ -20,9 +20,20 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct ExampleFirebaseApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject var authViewModel = AuthViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            AuthView()
+            if authViewModel.user != nil{
+                HomeView(authViewModel: authViewModel)
+                
+            }else{
+                AuthView(authViewModel: authViewModel)
+            }
+            
+            
+            
+            
         }
     }
 }
