@@ -18,7 +18,8 @@ struct HomeView: View {
                 VStack(alignment: .center){
                     Text("Bienvenido \(authViewModel.user?.email ?? "NO USER")").padding(.top, 35)
                     Spacer()
-                    LinkView(linkViewModel: linkViewModel, authViewModel: authViewModel)
+                    LinkView(linkViewModel: linkViewModel)
+                             //, authViewModel: authViewModel)
                 }
                 .tabItem{
                     Label("Home", systemImage: "house.fill")

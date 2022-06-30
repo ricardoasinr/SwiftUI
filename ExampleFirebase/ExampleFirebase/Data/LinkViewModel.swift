@@ -33,8 +33,6 @@ final class LinkViewModel: ObservableObject{
         }
     }
     
-    func createNewNota(email: String){
-        linkRepository.newNota(email: email, nota: 1)
-        
-    }
+    //func createNewNota(email: String){
+    //linkRepository.newNota(email: email, nota: 1)}
 }

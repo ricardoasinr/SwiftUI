@@ -10,7 +10,7 @@ import SwiftUI
 struct LinkView: View {
     
     @ObservedObject var linkViewModel: LinkViewModel
-    @ObservedObject var authViewModel: AuthViewModel
+  //  @ObservedObject var authViewModel: AuthViewModel
     var body: some View {
         List{
             ForEach(linkViewModel.links){ link in
@@ -33,7 +33,7 @@ struct LinkView: View {
             }
         }.task{
             linkViewModel.getAllLinks()
-            linkViewModel.createNewNota( email: authViewModel.user?.email ?? "No user")
+            //linkViewModel.createNewNota( email: authViewModel.user?.email ?? "No user")
         }
         
     }
@@ -41,6 +41,6 @@ struct LinkView: View {
 
 struct LinkView_Previews: PreviewProvider {
     static var previews: some View {
-        LinkView(linkViewModel: LinkViewModel(), authViewModel: AuthViewModel())
+        LinkView(linkViewModel: LinkViewModel()) //,authViewModel: AuthViewModel())
     }
 }

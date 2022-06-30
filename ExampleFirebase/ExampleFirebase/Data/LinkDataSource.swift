@@ -42,13 +42,13 @@ final class LinkDataSource {
             }
     }
     
-    func createNewNota(email: String, nota1: Int){
-        database.collection("users").document(email).setData([
-            "Nota1": nota1,
+    //func createNewNota(email: String, nota1: Int){
+      //  database.collection("users").document(email).setData([
+        //    "Nota1": nota1,
             
-        ])
+        //])
         
         
-    }
+    //}
     
 }

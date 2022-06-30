@@ -19,9 +19,9 @@ final class LinkRepository{
         linkDataSource.getAllLinks(completionBlock: completionBlock)
     }
     
-    func newNota(email: String, nota: Int){
-        linkDataSource.createNewNota(email: email, nota1: nota)
-    }
+    //func newNota(email: String, nota: Int){
+        //linkDataSource.createNewNota(email: email, nota1: nota)
+    //}
     
     
 }
