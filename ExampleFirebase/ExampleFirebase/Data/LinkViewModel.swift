@@ -35,4 +35,17 @@ final class LinkViewModel: ObservableObject{
     
     //func createNewNota(email: String){
     //linkRepository.newNota(email: email, nota: 1)}
+    
+    func createNewLink(FromURL url: String){
+        linkRepository.createNewLink(withURL: url) { [weak self]
+            result in
+            switch result{
+            case .success(_):
+                //self?.links.append(link)
+                print("✅ok")
+            case .failure(let error):
+                self?.MessageError = error.localizedDescription
+            }
+        }
+    }
 }

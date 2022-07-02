@@ -10,7 +10,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-struct LinkModel: Decodable, Identifiable{
+struct LinkModel: Decodable, Identifiable, Encodable{
     @DocumentID var id: String?
     let URL: String
     let isCompleted: Bool
@@ -40,6 +40,17 @@ final class LinkDataSource {
                     .compactMap{$0}
                 completionBlock(.success(links))
             }
+    }
+    
+    func createNewlink(link: LinkModel, completionBlock: @escaping (Result <LinkModel, Error>)->Void){
+        do{
+            _ = try database.collection(collection).addDocument(from: link)
+            completionBlock(.success(link))
+        }
+        catch{
+            completionBlock(.failure(error))
+        }
+       
     }
     
     //func createNewNota(email: String, nota1: Int){
