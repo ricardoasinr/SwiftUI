@@ -12,7 +12,7 @@ struct LinkView: View {
     @ObservedObject var linkViewModel: LinkViewModel
   //  @ObservedObject var authViewModel: AuthViewModel
     @State var text: String = " "
-    
+    @State var showAlert: Bool = false
     
     var body: some View {
         VStack {
@@ -35,14 +35,63 @@ struct LinkView: View {
                             Spacer()
                             if link.isCompleted{
                                 Image(systemName: "checkmark.circle.fill").resizable()
-                                    .foregroundColor(.blue).frame(width: 10, height: 10)
+                                    .foregroundColor(.blue).frame(width: 10, height: 10).padding(.bottom, 10)
                             }
                             if link.isFavorite{
                                 Image(systemName: "star.fill").resizable()
-                                    .foregroundColor(.yellow).frame(width: 10, height: 10)
+                                    .foregroundColor(.yellow).frame(width: 10, height: 10).padding(.bottom, 10)
                             }
                         }
-                    }
+                        }.swipeActions(edge: .trailing) {
+                            
+                            Button(action: {
+                                linkViewModel.updateIsFavorite(link: link)
+                                
+                            }, label: {
+                                Label("Favorito", systemImage: "star.fill")
+                                
+                            }).tint(.yellow)
+                            Button(action: {
+                                linkViewModel.updateIsCompleted(link: link)
+                                
+                            }, label: {
+                                Label("Completado", systemImage: "checkmark.circle.fill")
+                                
+                            }).tint(.blue)
+                            
+                           
+                            
+                        }.swipeActions(edge: .leading) {
+                            Button(action: {
+                                //linkViewModel.deleteLink(link: link)
+                                showAlert = true
+                                
+                            }, label: {
+                                Label("Eliminar", systemImage: "trash.fill")
+                                
+                            }).tint(.red)
+                            
+                        }.alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Desea eliminar este link?"),
+                                message: Text("Esta acción no podrá deshacerse"),
+                                primaryButton: .default(
+                                    Text("Cancelar"),
+                                    action: {
+                                        print("No se eliminó")
+                                    }
+                                ),
+                                secondaryButton: .destructive(
+                                    Text("Eliminar"),
+                                    action:
+                                    {
+                                        linkViewModel.deleteLink(link: link)
+                                        print("Se eliminó")
+                                    }
+                                    
+                                )
+                            )
+                        }
                     
                 }
             }.task{

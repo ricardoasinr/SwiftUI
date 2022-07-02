@@ -9,6 +9,7 @@ import Foundation
 
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+//import FirebaseDynamicLinks
 
 struct LinkModel: Decodable, Identifiable, Encodable{
     @DocumentID var id: String?
@@ -51,6 +52,31 @@ final class LinkDataSource {
             completionBlock(.failure(error))
         }
        
+    }
+    
+    func updateLink(link: LinkModel){
+        guard let documentID = link.id else {
+            return
+        }
+        do{
+            _ = try database.collection(collection).document(documentID).setData(from: link) //Actualiza el documento
+            
+        }catch{
+            print("Error al actualizar")
+        }
+    }
+    
+    func deleteLink(link: LinkModel){
+        guard let documentID = link.id else {
+            return
+        }
+        do{
+            _ = try database.collection(collection).document(documentID).delete() //Actualiza el documento
+            
+        }catch{
+            print("Error al actualizar")
+        }
+        
     }
     
     //func createNewNota(email: String, nota1: Int){
