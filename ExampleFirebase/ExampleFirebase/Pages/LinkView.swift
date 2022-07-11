@@ -15,22 +15,39 @@ struct LinkView: View {
     @State var showAlert: Bool = false
     
     var body: some View {
+        
         VStack {
             TextEditor(text: $text).frame(height: 100)
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(.green, lineWidth: 2)).padding(.horizontal, 12).cornerRadius(3)
-            Button(action: {
-                linkViewModel.createNewLink(FromURL: text)
-            }, label: {
-                Label("Crear link", systemImage: "link").tint(.green).controlSize(.regular).buttonStyle(.bordered).buttonBorderShape(.capsule)
-            })
+            
+            HStack{
+                Button(action: {
+                    linkViewModel.createNewLink(FromURL: text)
+                   
+                    
+                }, label: {
+                    Label("Crear link", systemImage: "link").tint(.green).controlSize(.regular).buttonStyle(.bordered).buttonBorderShape(.capsule)
+                })
+                Button(action: {
+                    text = " "
+                    
+                }, label: {
+                    Label("Limpiar", systemImage: "link").tint(.red).controlSize(.regular).buttonStyle(.bordered).buttonBorderShape(.capsule)
+                })
+                
+            }
+          
             if(linkViewModel.MessageError != nil){
                 Text(linkViewModel.MessageError!).bold().foregroundColor(.red)
             }
+            
             List{
                 ForEach(linkViewModel.links){ link in
                     VStack{
+                        Spacer()
                         Text(link.title).bold().lineLimit(4).padding(.bottom, 8)
                         Text(link.URL).foregroundColor(.gray).font(.caption)
+                        Spacer()
                         HStack{
                             Spacer()
                             if link.isCompleted{

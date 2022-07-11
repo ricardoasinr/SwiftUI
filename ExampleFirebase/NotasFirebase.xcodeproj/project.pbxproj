@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB97329528777BAD008F0E51 /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB97329428777BAD008F0E51 /* Tracker.swift */; };
 		AB9A7E79286B81BE00AA5288 /* ExampleFirebaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7E78286B81BE00AA5288 /* ExampleFirebaseApp.swift */; };
 		AB9A7E7B286B81BE00AA5288 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A7E7A286B81BE00AA5288 /* AuthView.swift */; };
 		AB9A7E7D286B81C000AA5288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB9A7E7C286B81C000AA5288 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB97329428777BAD008F0E51 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		AB9A7E75286B81BE00AA5288 /* NotasFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotasFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9A7E78286B81BE00AA5288 /* ExampleFirebaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleFirebaseApp.swift; sourceTree = "<group>"; };
 		AB9A7E7A286B81BE00AA5288 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				AB9A7E8D286B8C8F00AA5288 /* GoogleService-Info.plist */,
 				AB9A7EAB286C9E8A00AA5288 /* Info.plist */,
 				AB9A7E7E286B81C000AA5288 /* Preview Content */,
+				AB97329428777BAD008F0E51 /* Tracker.swift */,
 			);
 			path = ExampleFirebase;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				AB9A7E92286B9F5600AA5288 /* LoginEmailView.swift in Sources */,
 				AB9A7EC3286D3CFA00AA5288 /* LinkDataSource.swift in Sources */,
 				AB9A7EA3286BAF5500AA5288 /* AuthViewModel.swift in Sources */,
+				AB97329528777BAD008F0E51 /* Tracker.swift in Sources */,
 				AB9A7EBF286D3CC200AA5288 /* LinkViewModel.swift in Sources */,
 				AB9A7EA1286BAD9F00AA5288 /* AuthRepository.swift in Sources */,
 				AB9A7EC5286DEBDF00AA5288 /* LinkView.swift in Sources */,
